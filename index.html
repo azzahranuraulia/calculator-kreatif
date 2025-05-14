@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathify - Kalkulator Estetis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Mathify - Kalkulator Estetis</h1>
+  <div class="mode-alert" id="modeAlert">Mode: Kalkulator Dasar</div>
+
+  <div class="nav">
+    <button onclick="switchMode('basic')" class="active">Dasar</button>
+    <button onclick="switchMode('geometry')">Bangun Datar</button>
+    <button onclick="switchMode('space')">Bangun Ruang</button>
+    <button onclick="switchMode('bmi')">BMI</button>
+    <button onclick="switchMode('convert')">Konversi</button>
+    <button onclick="switchMode('creative')">Tentang Kalkulator Ini</button>
+  </div>
+
+  <!-- Kalkulator Dasar -->
+  <div class="calculator-section active" id="basic">
+    <div class="form-group">
+      <input type="number" id="num1" placeholder="Angka pertama">
+      <input type="number" id="num2" placeholder="Angka kedua">
+      <select id="operation">
+        <option value="+">Tambah (+)</option>
+        <option value="-">Kurang (-)</option>
+        <option value="*">Kali (×)</option>
+        <option value="/">Bagi (/)</option>
+      </select>
+    </div>
+    <button onclick="calculateBasic()">Hitung</button>
+    <div class="result" id="basicResult"></div>
+  </div>
+
+  <!-- Kalkulator Bangun Datar -->
+  <div class="calculator-section" id="geometry">
+    <select id="shape" onchange="updateShapeForm()">
+      <option value="square">Persegi</option>
+      <option value="rectangle">Persegi Panjang</option>
+      <option value="triangle">Segitiga</option>
+      <option value="parallelogram">Jajar Genjang</option>
+      <option value="trapezoid">Trapesium</option>
+      <option value="circle">Lingkaran</option>
+    </select>
+    <div id="shapeForm"></div>
+    <button onclick="calculateShape()">Hitung</button>
+    <div class="result" id="shapeResult"></div>
+  </div>
+
+  <!-- Kalkulator Bangun Ruang -->
+  <div class="calculator-section" id="space">
+    <select id="solid" onchange="updateSolidForm()">
+      <option value="cube">Kubus</option>
+      <option value="cuboid">Balok</option>
+      <option value="sphere">Bola</option>
+      <option value="cylinder">Tabung</option>
+      <option value="cone">Kerucut</option>
+    </select>
+    <div id="solidForm"></div>
+    <button onclick="calculateSolid()">Hitung</button>
+    <div class="result" id="solidResult"></div>
+  </div>
+
+  <!-- Kalkulator BMI -->
+  <div class="calculator-section" id="bmi">
+    <input type="number" id="height" placeholder="Tinggi (cm)">
+    <input type="number" id="weight" placeholder="Berat (kg)">
+    <button onclick="calculateBMI()">Hitung BMI</button>
+    <div class="result" id="bmiResult"></div>
+  </div>
+
+  <!-- Konversi Satuan -->
+  <div class="calculator-section" id="convert">
+    <input type="number" id="inputValue" placeholder="Nilai">
+    <select id="convertType">
+      <option value="cm-m">cm → meter</option>
+      <option value="m-km">meter → km</option>
+      <option value="c-f">Celsius → Fahrenheit</option>
+    </select>
+    <button onclick="convertUnit()">Konversi</button>
+    <div class="result" id="convertResult"></div>
+  </div>
+
+
+<!-- Mode Kreatif -->
+<div class="calculator-section" id="creative">
+  <h2 style="font-size: 1.8em; color: #6c63ff;">🌈 Selamat Datang di <span style="font-weight: bold;">Mathify</span> — Kalkulator Keren Serba Bisa!</h2>
+  <p style="font-size: 1.05em; margin-top: 10px;">
+    Mathify bukan sekadar kalkulator. Ini adalah teman belajarmu yang siap membantu dari hal paling dasar sampai yang bikin kamu takjub! Yuk kenalan dulu dengan fiturnya ✨:
+  </p>
+
+  <ul style="list-style: none; padding-left: 0; font-size: 1.05em;">
+    <li><strong>🧮 Kalkulator Dasar</strong><br><span style="color: #555;">Untuk hitung tambah, kurang, kali, dan bagi. Ini dasar dari semua matematika, simpel tapi penting!</span></li><br>
+    <li><strong>📏 Bangun Datar</strong><br><span style="color: #555;">Hitung luas dan keliling dari bentuk-bentuk seperti persegi, segitiga, hingga lingkaran. Cocok untuk kamu yang lagi belajar geometri.</span></li><br>
+    <li><strong>📦 Bangun Ruang</strong><br><span style="color: #555;">Mau tahu volume kubus, balok, tabung, atau bola? Di sini tempatnya! Visualisasikan ruang dengan mudah.</span></li><br>
+    <li><strong>⚖️ Kalkulator BMI</strong><br><span style="color: #555;">Hitung indeks massa tubuhmu (BMI) untuk cek apakah kamu kurus, normal, atau gemuk. Yuk hidup lebih sehat!</span></li><br>
+    <li><strong>🔄 Konversi Satuan</strong><br><span style="color: #555;">Butuh ubah cm ke meter, meter ke km, atau suhu Celsius ke Fahrenheit? Semua bisa kamu lakukan instan!</span></li>
+  </ul>
+
+  <p style="font-size: 1.1em; font-weight: bold; margin-top: 20px;">🎧 Fitur-fitur seru lainnya (segera hadir!)</p>
+  <ul style="list-style: none; padding-left: 0; font-size: 1.05em;">
+    <li><strong>🌤️ Kalkulator Mood</strong><br><span style="color: #555;">Prediksi mood kamu dari aktivitas harian. Seru banget, kan?</span></li><br>
+    <li><strong>⏳ Waktu Belajar Ideal</strong><br><span style="color: #555;">Bantu atur waktu belajar terbaik biar makin fokus dan gak gampang capek.</span></li><br>
+    <li><strong>🎶 Tema Lo-Fi</strong><br><span style="color: #555;">Ubah suasana tampilan jadi chill dengan tema lo-fi yang estetik dan menenangkan.</span></li>
+  </ul>
+
+  <p style="margin-top: 15px; font-style: italic; color: #666;">
+    Terus eksplorasi dan nikmati proses belajar. Di Mathify, belajar itu gak harus kaku — bisa seru, cantik, dan penuh warna 🎨📚
+  </p>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

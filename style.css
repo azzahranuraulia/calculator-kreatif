@@ -1,0 +1,68 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #fff1f1, #e0f7fa);
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #444;
+  }
+  h1 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+  }
+  .mode-alert {
+    background-color: #e1bee7;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .nav button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #b2dfdb;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .nav button.active {
+    background-color: #26a69a;
+    color: white;
+  }
+  .calculator-section {
+    display: none;
+  }
+  .calculator-section.active {
+    display: block;
+    margin-top: 20px;
+  }
+  .form-group, .result, input, select {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  input, select {
+    width: 200px;
+    border: 1px solid #ccc;
+  }
+  button {
+    margin-top: 10px;
+    background-color: #ffccbc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .result {
+    color: #4e342e;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
